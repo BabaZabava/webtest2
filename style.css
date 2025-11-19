@@ -1,0 +1,342 @@
+/* === ZÁKLAD === */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: "Oswald", sans-serif;
+  letter-spacing:1.5px;
+  background-color: #111;
+  background-image: linear-gradient(to bottom, #1a1a1a, #000);
+  color: #ccffcc;
+  text-align: center;
+  background-repeat: repeat;
+  background-size: auto;
+  overflow-x: hidden;
+}
+
+/* ==================================== */
+/*               NAVBAR                 */
+/* ==================================== */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(to bottom, #003300, #001a00);
+  border-bottom: 3px ridge #66cc66;
+  padding: 10px 20px;
+  text-shadow: 0 0 4px #66cc66;
+  color: #ccffcc;
+  position: relative;
+  z-index: 1000;
+}
+
+.navbar .logo,
+.navbar .center,
+.navbar .socky {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+
+.navbar .logo {
+  justify-content: flex-start;
+}
+
+.navbar .logo img {
+  height: 60px;
+  cursor: pointer;
+  filter: drop-shadow(0 0 4px #66cc66);
+}
+
+
+.navbar .center {
+  justify-content: center;
+}
+
+.hamburger {
+  font-size: 3rem;
+  color: #ccffcc;
+  cursor: pointer;
+  text-shadow: 0 0 5px #66cc66;
+  user-select: none;
+  display: block;
+}
+
+.navbar .socky {
+  justify-content: flex-end;
+}
+
+/* ========================================= */
+/*                NAV LINKS                  */
+/* ========================================= */
+
+.nav-links {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  
+  width: 350px;
+  background: rgba(0, 40, 0, 0.98);
+  border: 2px solid #66cc66;
+
+  padding: 20px 0;
+  z-index: 999;
+  opacity: 0;
+
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Active state */
+.nav-links.active {
+  display: flex;
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.nav-links a {
+  color: #ccffcc;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 12px 0;
+  width: 100%;
+  text-align: center;
+  text-shadow: 0 0 5px #66cc66;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #aaffaa;
+  text-shadow: 0 0 8px #99ff99;
+}
+
+.parby {
+  font-weight: 600;
+  color: #aaffaa;
+  letter-spacing: 1px;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-top: 1px solid rgba(102, 204, 102, 0.3);
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+/* ========================================= */
+/*                  DESKTOP                  */
+/* ========================================= */
+
+@media (min-width: 768px) {
+  .hamburger {
+    margin: 0;
+  }
+  .nav-links a {
+    font-size: 16px;
+  }
+  .socky {
+    margin-right: 30px;
+  }
+  .logo {
+    margin-right: 30px;
+  }
+}
+
+/* ========================================= */
+/*                  LANDING                  */
+/* ========================================= */
+
+.landing {
+  margin: 40px auto;
+  width: min(90%, 900px);
+  height: min(60%, 400px);
+  padding: 30px;
+  border: 4px ridge #66cc66;
+  background-color: #0753078a;
+  box-shadow: inset 0 0 10px #003300, 0 0 15px #66cc66;
+}
+
+.landing p {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-shadow: 0 0 3px #339966;
+}
+
+/* ========================================= */
+/*                COUNTDOWN                  */
+/* ========================================= */
+
+.countdown {
+  font-family: 'Courier New', monospace;
+  font-size: 2rem;
+  color: #aaffaa;
+  margin: 20px 0 30px 0;
+  text-shadow: 0 0 5px #336633;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.countdown.loaded {
+  opacity: 1;
+  animation: glowPulse 2s infinite ease-in-out alternate;
+}
+
+.countdown span {
+  display: inline-block;
+  min-width: 55px;
+  text-align: center;
+}
+
+@keyframes glowPulse {
+  0% { text-shadow: 0 0 5px #66cc66, 0 0 10px #003300; }
+  100% { text-shadow: 0 0 10px #99ff99, 0 0 20px #006600; }
+}
+
+/* ========================================= */
+/*                  FOOTER                   */
+/* ========================================= */
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to top, #003300, #001a00);
+  color: #ccffcc;
+  padding: 15px;
+  text-align: center;
+  z-index: 100;
+  border-top: 3px ridge #66cc66;
+}
+
+/* ========================================= */
+/*                  BUTTONS                  */
+/* ========================================= */
+
+.btn {
+  display: inline-block;
+  background: linear-gradient(#224422, #112211);
+  border: 3px outset #66cc66;
+  color: #e6ffe6;
+  padding: 10px 25px;
+  margin: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  text-shadow: 0 0 3px #66cc66;
+  box-shadow: 0 0 10px rgba(102, 204, 102, 0.2);
+  transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+  background: linear-gradient(#112211, #224422);
+  border: 3px inset #66cc66;
+  color: #ffffff;
+  text-shadow: 0 0 5px #99ff99;
+}
+
+/* LINKS CONTAINER */
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* ========================================= */
+/*                 CRT EFFECT                */
+/* ========================================= */
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    rgba(0, 0, 0, 0.015) 0px,
+    rgba(0, 0, 0, 0.015) 2px,
+    transparent 2px,
+    transparent 3px
+  );
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 1;
+}
+
+/* ========================================= */
+/*             UNITY KONTEJNER               */
+/* ========================================= */
+
+#unity-container {
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.unity-game-style-text {
+  color: #ccffcc;
+  text-shadow: 0 0 6px #66cc66;
+}
+
+/* ========================================= */
+/*                RESPONSIVE                 */
+/* ========================================= */
+
+@media (max-width: 768px) {
+  .landing {
+    padding: 20px;
+    width: 90%;
+  }
+
+  .landing p {
+    font-size: 1.2rem;
+  }
+
+  .nav-links {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  .countdown {
+    font-size: 1.3rem;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing {
+    margin: 20px auto;
+    padding: 15px;
+  }
+
+  .navbar .logo img {
+    height: 45px;
+  }
+
+  .countdown {
+    font-size: 1.1rem;
+  }
+
+  .landing p {
+    font-size: 1rem;
+  }
+}
