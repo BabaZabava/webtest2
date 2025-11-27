@@ -5,7 +5,7 @@ html, body {
   height: 100%;
   margin: 0;
   font-family: "Oswald", sans-serif;
-  letter-spacing:1.5px;
+  letter-spacing: 1.5px;
   background-color: #111;
   background-image: linear-gradient(to bottom, #1a1a1a, #000);
   color: #ccffcc;
@@ -13,6 +13,9 @@ html, body {
   background-repeat: repeat;
   background-size: auto;
   overflow-x: hidden;
+  min-height: 100vh;      /* Zajistí plnou výšku okna */
+  display: flex;          /* Aktivuje flexbox */
+  flex-direction: column; /* Seřadí prvky pod sebe */
 }
 
 /* ==================================== */
@@ -61,8 +64,8 @@ html, body {
   color: #ccffcc;
   cursor: pointer;
   text-shadow: 0 0 5px #66cc66;
-  user-select: none;
   display: block;
+  transform: translateY(-8px);
 }
 
 .navbar .socky {
@@ -77,20 +80,17 @@ html, body {
   display: none;
   flex-direction: column;
   align-items: center;
-
+  flex: 1;
   position: absolute;
   top: calc(100% + 10px);
   left: 50%;
   transform: translateX(-50%);
-  
   width: 350px;
   background: rgba(0, 40, 0, 0.98);
   border: 2px solid #66cc66;
-
   padding: 20px 0;
   z-index: 999;
   opacity: 0;
-
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
@@ -210,18 +210,19 @@ html, body {
 /* ========================================= */
 /*                  FOOTER                   */
 /* ========================================= */
+footer {
+  margin-top: auto; 
+  width: 100%;
+}
 
 .footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
   background: linear-gradient(to top, #003300, #001a00);
   color: #ccffcc;
   padding: 15px;
   text-align: center;
   z-index: 100;
   border-top: 3px ridge #66cc66;
+  box-sizing: border-box; 
 }
 
 /* ========================================= */
@@ -304,7 +305,7 @@ body::after {
   }
 
   .landing p {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
   }
 
   .nav-links {
